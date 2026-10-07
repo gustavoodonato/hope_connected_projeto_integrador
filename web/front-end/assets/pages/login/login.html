@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hope Connected</title>
+
+  <!-- Link do Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Fonte Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- CSS da Page -->
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar hc-nav px-3 px-md-5 py-3">
+      <ul class="navbar-nav flex-row gap-4 gap-md-5 ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Sobre Nós</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Suporte</a></li>
+        <li class="nav-item"><a class="nav-link fw-bold" href="https://aacd.org.br/" target="_blank" rel="noopener">AACD</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container d-flex flex-column align-items-center py-4 pb-5">
+    <h1 class="hc-titulo fw-bold text-center mb-4">Hope Connected</h1>
+
+    <section class="card hc-card w-100 p-4 border-0 rounded-4">
+
+      <!-- Abas -->
+      <div class="nav nav-pills nav-fill hc-abas mb-4">
+        <button type="button" class="nav-link aba active" data-modo="entrar">Entrar</button>
+        <button type="button" class="nav-link aba" data-modo="criar">Criar Conta</button>
+      </div>
+
+      <!-- novalidate serve para o navegador ignorar os campos para não validar eles-->
+      <form id="form-auth" novalidate>
+
+        <div class="mb-3 d-none" id="grupo-nome">
+          <input type="text" class="form-control hc-input" name="nome" id="campo-nome" placeholder="Nome" autocomplete="name">
+          <div class="invalid-feedback"></div>
+        </div>
+
+        <div class="mb-3">
+          <input type="email" class="form-control hc-input" name="email" placeholder="E-mail" autocomplete="email" required>
+          <div class="invalid-feedback"></div>
+        </div>
+
+        <div class="mb-3">
+          <input type="password" class="form-control hc-input" name="senha" id="campo-senha" placeholder="Senha" autocomplete="current-password" required>
+          <div class="invalid-feedback"></div>
+        </div>
+
+        <div class="mb-3 d-none" id="grupo-confirmar">
+          <input type="password" class="form-control hc-input" name="confirmar" id="campo-confirmar" placeholder="Confirmar senha" autocomplete="new-password">
+          <div class="invalid-feedback"></div>
+        </div>
+
+        <button type="submit" class="btn hc-btn w-100 py-3 mt-2" id="btn-enviar">Entrar</button>
+      </form>
+
+      <div class="text-center mt-4" id="area-esqueci">
+        <a href="#" class="hc-link">Esqueci minha senha</a>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
