@@ -1,0 +1,78 @@
+
+
+/* Cores */
+:root {
+  --vermelho: #BA0000;
+  --laranja: #DA6D00;
+  --laranja-escuro: #B85A00;
+  --input-fundo: #FFF9EC;
+  --input-borda: #E5E2B7;
+}
+
+
+/* Tamanho de fonte responsivo (o Bootstrap usa rem, então tudo acompanha) */
+html {
+  font-size: clamp(16px, 0.6vw + 8px, 22px);
+}
+
+/* Fonte usada no projeto */
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ===== Cartão branco ===== */
+.hc-card {
+  border: 0;
+  border-radius: 12px;
+  color: #333;
+}
+.hc-sombra {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.28);
+}
+
+.hc-subtitulo {
+  color: var(--laranja);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+/* ===== Abas (parte comum; cada página ajusta tamanho e espaçamento) ===== */
+.hc-abas {
+  background: var(--laranja);
+  border-radius: 12px;
+  padding: 4px;
+  --bs-nav-link-color: #fff;
+  --bs-nav-link-hover-color: #fff;
+  --bs-nav-pills-link-active-bg: #fff;
+  --bs-nav-pills-link-active-color: var(--laranja);
+  --bs-nav-pills-border-radius: 8px;
+}
+
+/* Para campos de texto */
+.hc-input {
+  padding: 1rem;
+  border: 1px solid var(--input-borda);
+  border-radius: 8px;
+  background-color: var(--input-fundo);
+}
+.hc-input:focus {
+  background-color: var(--input-fundo);
+  border-color: var(--laranja);
+  box-shadow: 0 0 0 0.2rem rgba(218, 109, 0, 0.25);
+}
+
+/* Botão principal */
+.hc-btn {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--laranja);
+  --bs-btn-border-color: var(--laranja);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--laranja-escuro);
+  --bs-btn-hover-border-color: var(--laranja-escuro);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--laranja-escuro);
+  --bs-btn-active-border-color: var(--laranja-escuro);
+  --bs-btn-border-radius: 8px;
+  font-weight: 700;
+}

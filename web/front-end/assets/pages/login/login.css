@@ -1,0 +1,48 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, var(--vermelho), var(--laranja));
+  background-attachment: fixed;
+  color: white;
+}
+
+/* Menu */
+.hc-nav .nav-link {
+  color: white;
+  font-size: 1.1rem;
+}
+.hc-nav .nav-link:hover,
+.hc-nav .nav-link:focus-visible {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Título H1 */
+.hc-titulo {
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 1.1;
+}
+
+/* Largura do card branco das informações*/
+.hc-card-login {
+  max-width: 30rem;
+}
+
+/* Abas do login */
+.hc-abas .nav-link {
+  padding: 1rem;
+}
+
+.was-validated .hc-input:valid {
+  border-color: var(--input-borda);
+  background-image: none;
+  padding-right: 1rem;
+}
+
+/* Esqueci minha senha */
+.hc-link {
+  color: var(--laranja);
+  text-decoration: none;
+}
+.hc-link:hover {
+  text-decoration: underline;
+}

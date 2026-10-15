@@ -1,0 +1,66 @@
+/* =========================================================
+   LAYOUT-PAINEL.CSS: menu lateral + área de conteúdo.
+   Usado pelas telas de dentro do sistema (painel, perfil...),
+   não pelo login.
+   ========================================================= */
+
+body {
+  background: #fff;
+  color: #333;
+}
+
+/* Sidebar das páginas dos usuários */
+.hc-sidebar {
+  background: linear-gradient(to bottom, var(--vermelho), var(--laranja));
+}
+@media (min-width: 576px) {
+  .hc-sidebar {
+    flex: 0 0 5.5rem;
+    width: 5.5rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    align-self: flex-start;
+  }
+}
+
+/* Estilização de cada botão da sidebar */
+.hc-side-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.6rem 0.25rem;
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+@media (min-width: 576px) {
+  .hc-side-item { width: 4.5rem; }
+}
+.hc-side-item i {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+/* Passar o mouse ou navegar pelo teclado */
+.hc-side-item:hover,
+.hc-side-item:focus-visible {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Item selecionado: fundo branco e texto laranja */
+.hc-side-item.active,
+.hc-side-item.active:hover {
+  background: #fff;
+  color: var(--laranja);
+  font-weight: 700;
+}
+
+/* estilizaçõa do posicionamento do conteúdo principal de cada página*/
+.hc-conteudo {
+  min-width: 0; 
+}
