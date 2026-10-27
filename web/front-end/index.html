@@ -161,25 +161,45 @@
     <div id="suporte" class="tela d-none">
         <main>
             <hc-navbar></hc-navbar>
-
-            <div class="container-fluid">
+            <div class="container-fluid px-5 px-md-4 pb-4">
                 <div class="row">
-                    <div class="col-12 col-md-6 text-start">
-                        <h1 class="fw-bold mb-4">Suporte</h1>
-
-                        <p>
-                            Este site é o nosso projeto de semestre que elaboramos
-                            durante o segundo semestre no curso de Ciências da
-                            Computação no
-                            <a href="https://www.maua.br" target="_blank">
-                                Instituto Mauá de Tecnologia - IMT
-                            </a>.
-                            O objetivo educacional do projeto é nos ajudar a
-                            desenvolver habilidades técnicas relevantes que
-                            representam a base da computação e do desenvolvimento
-                            de projetos, com o intuito de nos preparar para o
-                            mercado de trabalho.
-                        </p>
+                    <div class="col-12">
+                        <div class="text-center mb-4">
+                            <h1 class="fw-bold mb-4">Suporte</h1>
+                        </div>
+                        <section class="card hc-card hc-sombra p-3 p-md-4">
+                            <form novalidate>
+                                <div class="mb-2">
+                                    <label for="campo-email-suporte" class="form-label">E-mail para contato:</label>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" id="campo-email-suporte" placeholder="Digite aqui..." class="form-control hc-input">
+                                </div>
+                                <div class="mb-2">
+                                    <label for="campo-suporte" class="form-label">Categoria para suporte:</label>
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-select hc-input" id="campo-suporte" required>
+                                        <option value="" selected disabled>Tipo</option>
+                                        <option value="login">Login</option>
+                                        <option value="adicao-impressora">Adição de impressora</option>
+                                        <option value="envio-de-solicitacao">Envio de solicitação</option>
+                                        <option value="bug-visual">Bug/Falha visual</option>
+                                        <option value="outra">Outra</option>
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="campo-descricao-suporte" class="form-label">Descrição elaborada da impressora</label>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control hc-input" id="campo-descricao-suporte" rows="5"
+                                            placeholder="Digite aqui..."></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn hc-btn w-100 py-3 mt-2">Enviar</button>
+                                </div>
+                            </form>
+                        </section>
                     </div>
                 </div>
             </div>
