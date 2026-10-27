@@ -5,7 +5,6 @@ body {
   color: white;
 }
 
-/* Menu */
 .hc-nav .nav-link {
   color: white;
   font-size: 1.1rem;
@@ -16,18 +15,15 @@ body {
   text-decoration: underline;
 }
 
-/* Título H1 */
 .hc-titulo {
   font-size: clamp(3rem, 6vw, 6rem);
   line-height: 1.1;
 }
 
-/* Largura do card branco das informações*/
 .hc-card-login {
   max-width: 30rem;
 }
 
-/* Abas do login */
 .hc-abas .nav-link {
   padding: 1rem;
 }
@@ -38,7 +34,18 @@ body {
   padding-right: 1rem;
 }
 
-/* Esqueci minha senha */
+#campo-tipo-usuario {
+  padding: 1rem;
+  border: 1px solid var(--input-borda);
+  border-radius: 8px;
+  background-color: var(--input-fundo);
+}
+#campo-tipo-usuario:focus {
+  background-color: var(--input-fundo);
+  border-color: var(--laranja);
+  box-shadow: 0 0 0 0.2rem rgba(218, 109, 0, 0.25);
+}
+
 .hc-link {
   color: var(--laranja);
   text-decoration: none;

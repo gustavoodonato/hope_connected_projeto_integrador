@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope Connected</title>
+
+    <!-- Bootstrap 5 (CSS) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fonte Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="../front-end/assets/css/global/global.css">
+    <link rel="stylesheet" href="../front-end/assets/css/global/login.css">
+    <link rel="stylesheet" href="../front-end/assets/css/global/usuario-empresa.css">
+    <link rel="stylesheet" href="../front-end/assets/css/global/sobre-nos.css">
+    <link rel="stylesheet" href="../front-end/assets/css/global/suporte.css">
+    <link rel="stylesheet" href="../front-end/assets/css/global/tabela-solicitacoes.css">
+
+    <!-- CSS dos components -->
+     <link rel="stylesheet" href="../front-end/assets/js/components/navbar/navbar.css">
+     <link rel="stylesheet" href="../front-end/assets/js/components/sidebar/sidebar.css">
+
+     <!-- scripts da page -->
+      <script src="../front-end/assets/js/components/navbar/navbar.js"></script>
+      <script src="../front-end/assets/js/components/sidebar/sidebar.js"></script>
+
+</head>
+<body>
+
+    <!-- tela login -->
+    <div id="login" class="tela">
+        <hc-navbar></hc-navbar>
+        <main class="container d-flex flex-column align-items-center py-4 pb-5">
+
+            <div>
+                <h1 class="hc-titulo fw-bold text-center mb-4">Hope Connected</h1>
+            </div>
+
+            <section class="card hc-card hc-card-login w-100 p-4 border-0 rounded-4">
+
+                <!-- Abas -->
+                <div class="nav nav-pills nav-fill hc-abas mb-4" role="tablist">
+                    <button type="button" class="nav-link active" id="aba-entrar"
+                            data-bs-toggle="pill" data-bs-target="#painel-entrar"
+                            role="tab" aria-controls="painel-entrar" aria-selected="true">
+                        Entrar
+                    </button>
+                    <button type="button" class="nav-link" id="aba-criar"
+                            data-bs-toggle="pill" data-bs-target="#painel-criar"
+                            role="tab" aria-controls="painel-criar" aria-selected="false">
+                        Criar Conta
+                    </button>
+                </div>
+
+                <div class="tab-content">
+
+                    <div class="tab-pane fade show active" id="painel-entrar" role="tabpanel" aria-labelledby="aba-entrar">
+                        <form id="form-login" novalidate>
+                            <div class="mb-3">
+                                <input type="email" class="form-control hc-input" name="email"
+                                       placeholder="E-mail" autocomplete="email" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="password" class="form-control hc-input" name="senha"
+                                       placeholder="Senha" autocomplete="current-password" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <select name="form-select hc-input" id="campo-tipo-usuario">
+                                    <option value="" selected disabled>Tipo de usuário</option>
+                                    <option value="empresa">Empresa</option>
+                                    <option value="aacd">Funcionário AACD</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn hc-btn w-100 py-3 mt-2">Entrar</button>
+
+                            <div class="text-center mt-4">
+                                <a href="#" class="hc-link">Esqueci minha senha</a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="painel-criar" role="tabpanel" aria-labelledby="aba-criar">
+                        <form id="form-cadastrar" novalidate>
+                            <div class="mb-3">
+                                <input type="text" class="form-control hc-input" name="nome"
+                                       placeholder="Nome" autocomplete="name" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="email" class="form-control hc-input" name="email"
+                                       placeholder="E-mail" autocomplete="email" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="password" class="form-control hc-input" name="senha"
+                                       placeholder="Senha" autocomplete="new-password" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="password" class="form-control hc-input" name="confirmar"
+                                       placeholder="Confirmar senha" autocomplete="new-password" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <button type="submit" class="btn hc-btn w-100 py-3 mt-2">Criar Conta</button>
+                        </form>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- tela sobre-nos -->
+
+    <div id="sobre-nos" class="tela d-none">
+        <main>
+            <hc-navbar></hc-navbar>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-md-6 text-start">
+                        <h1 class="fw-bold mb-4">Sobre nós</h1>
+
+                        <p>
+                            Este site é o nosso projeto de semestre que elaboramos
+                            durante o segundo semestre no curso de Ciências da
+                            Computação no
+                            <a href="https://www.maua.br" target="_blank">
+                                Instituto Mauá de Tecnologia - IMT
+                            </a>.
+                            O objetivo educacional do projeto é nos ajudar a
+                            desenvolver habilidades técnicas relevantes que
+                            representam a base da computação e do desenvolvimento
+                            de projetos, com o intuito de nos preparar para o
+                            mercado de trabalho.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+
+    <!-- tela suporte -->
+
+    <div id="suporte" class="tela d-none">
+        <main>
+            <hc-navbar></hc-navbar>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-md-6 text-start">
+                        <h1 class="fw-bold mb-4">Suporte</h1>
+
+                        <p>
+                            Este site é o nosso projeto de semestre que elaboramos
+                            durante o segundo semestre no curso de Ciências da
+                            Computação no
+                            <a href="https://www.maua.br" target="_blank">
+                                Instituto Mauá de Tecnologia - IMT
+                            </a>.
+                            O objetivo educacional do projeto é nos ajudar a
+                            desenvolver habilidades técnicas relevantes que
+                            representam a base da computação e do desenvolvimento
+                            de projetos, com o intuito de nos preparar para o
+                            mercado de trabalho.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Tela usuario-empresa -->
+    <div id="usuario-empresa" class="tela d-none d-flex flex-column flex-sm-row min-vh-100">
+        <hc-sidebar></hc-sidebar>
+
+        <main class="flex-grow-1 p-3 p-md-4 hc-conteudo">
+
+            <!-- Abas -->
+            <ul class="nav nav-pills hc-abas mb-4" id="abas" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="aba-impressoras" data-bs-toggle="pill"
+                            data-bs-target="#painel-impressoras" type="button" role="tab"
+                            aria-controls="painel-impressoras" aria-selected="true">
+                        Minhas Impressoras
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="aba-solicitacoes" data-bs-toggle="pill"
+                            data-bs-target="#painel-solicitacoes" type="button" role="tab"
+                            aria-controls="painel-solicitacoes" aria-selected="false">
+                        Visualizar Solicitações
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Painéis -->
+            <div class="tab-content">
+
+                <!-- MINHAS IMPRESSORAS -->
+                <div class="tab-pane fade show active" id="painel-impressoras" role="tabpanel"
+                     aria-labelledby="aba-impressoras">
+
+                    <section class="card hc-card hc-sombra p-3 p-md-4">
+                        <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+                            <div>
+                                <h2 class="hc-subtitulo">Minhas Impressoras</h2>
+                                <p class="text-body-secondary mb-0">
+                                    Aqui você pode administrar as impressoras que estão em uso ou ociosas.
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn hc-btn px-3"
+                                    data-bs-toggle="modal" data-bs-target="#modal-impressora">
+                                Adicionar uma impressora
+                            </button>
+                        </div>
+
+                        <ul class="list-unstyled d-grid gap-3 mb-0" id="lista-impressoras"></ul>
+
+                        <p class="text-center text-body-secondary py-4 mb-0" id="vazio-impressoras">
+                            Nenhuma impressora cadastrada ainda.
+                        </p>
+                    </section>
+                </div>
+
+                <!-- SOLICITAÇÕES -->
+                <div class="tab-pane fade" id="painel-solicitacoes" role="tabpanel"
+                     aria-labelledby="aba-solicitacoes">
+
+                    <section class="card hc-card hc-sombra p-3 p-md-4">
+                        <h2 class="hc-subtitulo">Solicitações Recentes</h2>
+                        <p class="mb-3">Últimas solicitações realizadas:</p>
+
+                        <div class="hc-grid-solic hc-cabecalho d-none d-md-grid" aria-hidden="true">
+                            <span>Nº</span>
+                            <span>Produto</span>
+                            <span>Mandante</span>
+                            <span>Tipo</span>
+                            <span>Prioridade</span>
+                            <span>Data de Emissão</span>
+                        </div>
+
+                        <ul class="list-unstyled d-grid gap-3 mb-0" id="lista-solicitacoes"></ul>
+
+                        <p class="text-center text-body-secondary py-4 mb-0" id="vazio-solicitacoes">
+                            Nenhuma solicitação recebida até o momento.
+                        </p>
+                    </section>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- ========== POP-UP: ADICIONAR IMPRESSORA ========== -->
+        <div class="modal fade" id="modal-impressora" tabindex="-1"
+             aria-labelledby="titulo-modal-impressora" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content hc-card border-0 rounded-4">
+
+                    <div class="modal-header border-0 pb-0">
+                        <h2 class="hc-subtitulo modal-title fs-5" id="titulo-modal-impressora">Adicione uma Impressora</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="form-impressora" class="row g-3" novalidate>
+
+                            <div class="col-12 col-md-6">
+                                <label for="campo-marca" class="form-label">Marca</label>
+                                <input type="text" class="form-control hc-input" id="campo-marca"
+                                       placeholder="Digite aqui..." required>
+                                <div class="invalid-feedback">Informe a marca.</div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label for="campo-tipo" class="form-label">Tecnologia da Impressão</label>
+                                <select class="form-select hc-input" id="campo-tipo" required>
+                                    <option value="" selected disabled>Tipo</option>
+                                    <option value="FDM">FDM</option>
+                                    <option value="SLA">SLA</option>
+                                    <option value="DLP">DLP</option>
+                                    <option value="SLS">SLS</option>
+                                    <option value="DLMS">DLMS</option>
+                                    <option value="Polyjet">Polyjet</option>
+                                    <option value="EBM">EBM</option>
+                                    <option value="SLM">SLM</option>
+                                    <option value="MJF">MJF</option>
+                                </select>
+                                <div class="invalid-feedback">Escolha o tipo.</div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label for="campo-modelo" class="form-label">Modelo da impressora</label>
+                                <input type="text" class="form-control hc-input" id="campo-modelo"
+                                       placeholder="Digite aqui..." maxlength="60" required>
+                                <div class="invalid-feedback">Informe o modelo da impressora.</div>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <label for="campo-temp-bico" class="form-label">Temp. máx. do bico</label>
+                                <input type="number" class="form-control hc-input" id="campo-temp-bico" placeholder="°C">
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <label for="campo-temp-mesa" class="form-label">Temp. máx. da mesa</label>
+                                <input type="number" class="form-control hc-input" id="campo-temp-mesa" placeholder="°C">
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Volume da impressão: Eixos X, Y e Z</label>
+                                <div class="row g-2">
+                                    <div class="col-4">
+                                        <input type="number" class="form-control hc-input" id="campo-x" placeholder="Eixo X">
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="number" class="form-control hc-input" id="campo-y" placeholder="Eixo Y">
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="number" class="form-control hc-input" id="campo-z" placeholder="Eixo Z">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label for="campo-nivelamento" class="form-label">Nivelamento da mesa</label>
+                                <input type="text" class="form-control hc-input" id="campo-nivelamento"
+                                       placeholder="Digite aqui...">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="campo-descricao" class="form-label">Descrição elaborada da impressora</label>
+                                <textarea class="form-control hc-input" id="campo-descricao" rows="3"
+                                          placeholder="Digite aqui..."></textarea>
+                            </div>
+
+                            <div class="col-12 text-end">
+                                <button type="submit" class="btn hc-btn py-2 px-4">
+                                    <i class="bi bi-plus-lg"></i> Adicionar
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="usuario-solicitante" class="tela d-none d-flex flex-column flex-sm-row min-vh-100">
+        <hc-sidebar></hc-sidebar>
+        <main class="flex-grow-1 p-3 p-md-4 hc-conteudo">
+            <ul class="nav nav-pills hc-abas mb-4" id="abas" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="aba-realizar-solicitacao" data-bs-toggle="pill"
+                    data-bs-target="#painel-realizar-solicitacao" type="button" role="tab"
+                    aria-controls="painel-realizar-solicitacao" aria-selected="true">Realizar Solicitação</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="aba-solicitacoes" data-bs-toggle="pill"
+                    data-bs-target="#painel-solicitacoes" type="button" role="tab"
+                    aria-controls="painel-solicitacoes" aria-selected="false">Visualizar Solicitações</button>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade show active">
+                    <section class="card hc-card hc-sombra p-3 p-md-4 mb-4">
+                        <ul class="list-unstyled d-grid gap-3 mb-0" id="lista-empresas"></ul>
+                        <p class="text-center text-body-secondary py-4 mb-0" id="vazio-impressoras">
+                            Nenhuma empresa cadastrada ainda.
+                        </p>
+                    </section>
+                </div>
+                    
+            <div class="tab-pane fade" id="painel-solicitacoes" role="tabpanel"
+                aria-labelledby="aba-solicitacoes">
+                
+                <section class="card hc-card hc-sombra p-3 p-md-4">
+                    <h2 class="hc-subtitulo">Solicitações Recentes</h2>
+                    <p class="mb-3">Últimas solicitações realizadas:</p>
+                    
+                    <div class="hc-grid-solic hc-cabecalho d-none d-md-grid" aria-hidden="true">
+                        <span>Nº</span>
+                        <span>Produto</span>
+                        <span>Mandante</span>
+                        <span>Tipo</span>
+                        <span>Status</span>
+                        <span>Data de Emissão</span>
+                    </div>
+                    
+                    <ul class="list-unstyled d-grid gap-3 mb-0" id="lista-solicitacoes"></ul>
+                    
+                    <p class="text-center text-body-secondary py-4 mb-0" id="vazio-solicitacoes">
+                        Nenhuma solicitação recebida até o momento.
+                    </p>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../front-end/assets/js/router.js"></script>
+</body>
+</html>

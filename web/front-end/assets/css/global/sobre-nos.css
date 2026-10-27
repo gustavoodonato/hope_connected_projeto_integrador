@@ -1,0 +1,11 @@
+#sobre-nos {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, var(--vermelho), var(--laranja));
+  background-attachment: fixed;
+  color: white;
+}
+
+#sobre-nos p a {
+  color: white;
+  text-decoration: underline;
+}

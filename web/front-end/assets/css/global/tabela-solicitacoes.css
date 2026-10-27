@@ -1,36 +1,3 @@
-/* Abas */
-.hc-abas {
-  display: inline-flex;
-}
-.hc-abas .nav-link {
-  padding: 0.75rem 1.25rem;
-  font-size: 1.1rem;
-}
-
-/* Cada linha das listas */
-.hc-item {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
-  padding: 1rem 1.25rem;
-}
-
-/* Lista de impressoras */
-.hc-impressora-tipo {
-  min-width: 4rem;
-  font-weight: 600;
-}
-.hc-switch:checked {
-  background-color: var(--laranja);
-  border-color: var(--laranja);
-}
-.hc-switch:focus {
-  border-color: var(--laranja);
-  box-shadow: 0 0 0 0.2rem rgba(218, 109, 0, 0.25);
-}
-
-/* Solicitações */
-
 @media (min-width: 768px) {
   .hc-grid-solic {
     display: grid;
@@ -50,6 +17,12 @@
   padding-block: 1rem;
   margin-bottom: 1rem;
   font-weight: 500;
+}
+
+.hc-rotulo {
+  color: var(--laranja);
+  font-weight: 600;
+  margin-right: 0.25rem;
 }
 
 .hc-status {

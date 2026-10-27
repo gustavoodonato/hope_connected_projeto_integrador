@@ -1,6 +1,3 @@
-
-
-/* Cores */
 :root {
   --vermelho: #BA0000;
   --laranja: #DA6D00;
@@ -9,19 +6,16 @@
   --input-borda: #E5E2B7;
 }
 
-
-/* Tamanho de fonte responsivo (o Bootstrap usa rem, então tudo acompanha) */
 html {
   font-size: clamp(16px, 0.6vw + 8px, 22px);
 }
 
-/* Fonte usada no projeto */
-
 body {
   font-family: "Montserrat", sans-serif;
+  background: #fff;
+  color: #333;
 }
 
-/* ===== Cartão branco ===== */
 .hc-card {
   border: 0;
   border-radius: 12px;
@@ -37,7 +31,6 @@ body {
   font-size: 1.25rem;
 }
 
-/* ===== Abas (parte comum; cada página ajusta tamanho e espaçamento) ===== */
 .hc-abas {
   background: var(--laranja);
   border-radius: 12px;
@@ -49,7 +42,6 @@ body {
   --bs-nav-pills-border-radius: 8px;
 }
 
-/* Para campos de texto */
 .hc-input {
   padding: 1rem;
   border: 1px solid var(--input-borda);
@@ -62,7 +54,6 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(218, 109, 0, 0.25);
 }
 
-/* Botão principal */
 .hc-btn {
   --bs-btn-color: #fff;
   --bs-btn-bg: var(--laranja);
