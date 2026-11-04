@@ -15,10 +15,9 @@
 }
 
 #perfil-usuario .hc-conteudo {
-  min-width: 0; /* evita que textos longos estourem a largura */
+  min-width: 0;
 }
 
-/* Limita a largura e centraliza o cartão, como no Figma */
 .hc-perfil-usuario-wrap {
   max-width: 52rem;
   margin-inline: auto;
@@ -35,7 +34,6 @@
   margin-bottom: 0.5rem;
 }
 
-/* ===== Foto ===== */
 .hc-avatar-col {
   flex: 0 0 auto;
   width: 9.5rem;
@@ -59,10 +57,9 @@
 .hc-avatar img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* corta a imagem sem deformar */
+  object-fit: cover;
 }
 
-/* "Trocar imagem": pequeno, escuro e sublinhado, como no Figma */
 .hc-trocar {
   --bs-btn-color: #222;
   --bs-btn-hover-color: var(--laranja-escuro);
@@ -71,7 +68,6 @@
   padding: 0.25rem 0;
 }
 
-/* ===== Nome e e-mail ===== */
 .hc-info dt {
   color: var(--laranja);
   font-weight: 700;
@@ -80,13 +76,12 @@
 .hc-info dd {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  overflow-wrap: anywhere; /* e-mails longos não estouram o cartão */
+  overflow-wrap: anywhere;
 }
 .hc-info dd:last-child {
   margin-bottom: 0;
 }
 
-/* Botões "Alterar..." (no Figma o texto não está em negrito) */
 .hc-btn-perfil-usuario {
   font-weight: 400;
   font-size: 1.05rem;
