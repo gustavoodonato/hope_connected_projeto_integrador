@@ -1,3 +1,18 @@
+#usuario-empresa {
+    background: #fff;
+    min-height: 100vh;
+}
+
+#usuario-solicitante {
+    background: #fff;
+    min-height: 100vh;
+}
+
+hc-sidebar {
+    background: linear-gradient(180deg, #b80000, #d96b00); /* use as cores/variáveis do seu global.css */
+    min-height: 100vh;
+}
+
 .hc-abas {
   display: inline-flex;
 }

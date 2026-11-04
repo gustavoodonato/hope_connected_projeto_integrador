@@ -8,7 +8,7 @@ class Sidebar extends HTMLElement {
                     <a href="#" class="hc-side-item"><i class="bi bi-info-square"></i><span>Sobre</span></a>
                     <a href="#" class="hc-side-item"><i class="bi bi-question-square"></i><span>Suporte</span></a>
 
-                    <a href="../login/login.html" class="hc-side-item mt-sm-auto"><i class="bi bi-box-arrow-left"></i><span>Sair</span></a>
+                    <a href="#" class="hc-side-item mt-sm-auto"><i class="bi bi-box-arrow-left"></i><span>Sair</span></a>
                 </nav>
             </aside>
         `;
