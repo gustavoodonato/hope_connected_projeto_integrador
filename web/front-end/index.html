@@ -376,44 +376,47 @@
                     aria-controls="painel-realizar-solicitacao" aria-selected="true">Realizar Solicitação</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="aba-solicitacoes" data-bs-toggle="pill"
-                    data-bs-target="#painel-solicitacoes" type="button" role="tab"
-                    aria-controls="painel-solicitacoes" aria-selected="false">Visualizar Solicitações</button>
+                    <button class="nav-link" id="aba-solicitacao" data-bs-toggle="pill"
+                    data-bs-target="#painel-solicitacao" type="button" role="tab"
+                    aria-controls="painel-solicitacao" aria-selected="false">Visualizar Solicitações</button>
                 </li>
             </ul>
-
             <div class="tab-content">
-                <div class="tab-pane fade show active">
-                    <section class="card hc-card hc-sombra p-3 p-md-4 mb-4">
-                        <ul class="list-unstyled d-grid gap-3 mb-0" id="lista-empresas"></ul>
-                        <p class="text-center text-body-secondary py-4 mb-0" id="vazio-impressoras">
-                            Nenhuma empresa cadastrada ainda.
+                <div class="tab-pane fade show active" id="painel-realizar-solicitacao" role="tabpanel"
+                aria-labelledby="aba-realizar-solicitacao">
+                    <div class="tab-pane fade show active">
+                        <section class="card hc-card hc-sombra p-3 p-md-4 mb-4">
+                            <ul class="list-unstyled d-grid gap-3 mb-0" id="lista-empresas"></ul>
+                            <p class="text-center text-body-secondary py-4 mb-0" id="vazio-impressoras">
+                                Nenhuma empresa cadastrada ainda.
+                            </p>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="painel-solicitacao" role="tabpanel"
+                    aria-labelledby="aba-solicitacao">
+                    
+                    <section class="card hc-card hc-sombra p-3 p-md-4">
+                        <h2 class="hc-subtitulo">Solicitações Recentes</h2>
+                        <p class="mb-3">Últimas solicitações realizadas:</p>
+                        
+                        <div class="hc-grid-solic hc-cabecalho d-none d-md-grid" aria-hidden="true">
+                            <span>Nº</span>
+                            <span>Produto</span>
+                            <span>Mandante</span>
+                            <span>Tipo</span>
+                            <span>Status</span>
+                            <span>Data de Emissão</span>
+                        </div>
+                        
+                        <ul class="list-unstyled d-grid gap-3 mb-0" id="lista-solicitacoes"></ul>
+                        
+                        <p class="text-center text-body-secondary py-4 mb-0" id="vazio-solicitacoes">
+                            Nenhuma solicitação recebida até o momento.
                         </p>
                     </section>
                 </div>
-                    
-            <div class="tab-pane fade" id="painel-solicitacoes" role="tabpanel"
-                aria-labelledby="aba-solicitacoes">
-                
-                <section class="card hc-card hc-sombra p-3 p-md-4">
-                    <h2 class="hc-subtitulo">Solicitações Recentes</h2>
-                    <p class="mb-3">Últimas solicitações realizadas:</p>
-                    
-                    <div class="hc-grid-solic hc-cabecalho d-none d-md-grid" aria-hidden="true">
-                        <span>Nº</span>
-                        <span>Produto</span>
-                        <span>Mandante</span>
-                        <span>Tipo</span>
-                        <span>Status</span>
-                        <span>Data de Emissão</span>
-                    </div>
-                    
-                    <ul class="list-unstyled d-grid gap-3 mb-0" id="lista-solicitacoes"></ul>
-                    
-                    <p class="text-center text-body-secondary py-4 mb-0" id="vazio-solicitacoes">
-                        Nenhuma solicitação recebida até o momento.
-                    </p>
-                </section>
             </div>
         </main>
     </div>
