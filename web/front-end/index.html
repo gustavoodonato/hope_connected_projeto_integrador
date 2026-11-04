@@ -153,24 +153,18 @@
     <div id="suporte" class="tela d-none">
         <main>
             <hc-navbar></hc-navbar>
-            <div class="container-fluid px-5 px-md-4 pb-4">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="text-center mb-4">
-                            <h1 class="fw-bold mb-4">Suporte</h1>
-                        </div>
+            <div class="container-fluid px-3 px-md-4 pb-5">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8 col-xl-6">
+                        <h1 class="fw-bold text-center mb-4">Suporte</h1>
                         <section class="card hc-card hc-sombra p-3 p-md-4">
                             <form novalidate>
-                                <div class="mb-2">
+                                <div class="mb-3">
                                     <label for="campo-email-suporte" class="form-label">E-mail para contato:</label>
+                                    <input type="email" id="campo-email-suporte" placeholder="Digite aqui..." class="form-control hc-input">
                                 </div>
                                 <div class="mb-3">
-                                    <input type="text" id="campo-email-suporte" placeholder="Digite aqui..." class="form-control hc-input">
-                                </div>
-                                <div class="mb-2">
                                     <label for="campo-suporte" class="form-label">Categoria para suporte:</label>
-                                </div>
-                                <div class="mb-3">
                                     <select class="form-select hc-input" id="campo-suporte" required>
                                         <option value="" selected disabled>Tipo</option>
                                         <option value="login">Login</option>
@@ -180,16 +174,12 @@
                                         <option value="outra">Outra</option>
                                     </select>
                                 </div>
-                                <div class="mb-2">
-                                    <label for="campo-descricao-suporte" class="form-label">Descrição elaborada da impressora</label>
-                                </div>
-                                <div class="mb-3">
+                                <div class="mb-4">
+                                    <label for="campo-descricao-suporte" class="form-label">Descrição do problema:</label>
                                     <textarea class="form-control hc-input" id="campo-descricao-suporte" rows="5"
                                             placeholder="Digite aqui..."></textarea>
                                 </div>
-                                <div class="mb-3">
-                                    <button type="submit" class="btn hc-btn w-100 py-3 mt-2">Enviar</button>
-                                </div>
+                                <button type="submit" class="btn hc-btn w-100 py-3">Enviar</button>
                             </form>
                         </section>
                     </div>
