@@ -1,7 +1,7 @@
 from typing import Optional
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, ValidationError, model_validator
 from src.shared.domain.enums.role_enum import RoleEnum
-from src.shared.domain.helpers.errors.domain_errors import EntityError
+from src.shared.helpers.errors.domain_errors import EntityError
 from src.shared.domain.entities.adress import Adress
 
 class User(BaseModel):
