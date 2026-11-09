@@ -1,4 +1,5 @@
 from typing import Optional
+from werkzeug.security import generate_password_hash, check_password_hash
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, ValidationError, model_validator
 from src.shared.domain.enums.role_enum import RoleEnum
 from src.shared.helpers.errors.domain_errors import EntityError
@@ -28,6 +29,11 @@ class User(BaseModel):
     email: EmailStr = Field(
         ...,
         description="Email do usuário"
+    )
+
+    senha_hash: str = Field (
+        ..., 
+        description="Senha hash de usuário"
     )
 
     phone: Optional[str] = Field (
