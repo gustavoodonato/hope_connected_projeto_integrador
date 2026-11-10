@@ -13,3 +13,7 @@ class IUserRepository(ABC):
         If user not found raise NoItemsFound
         """
         pass
+
+    @abstractmethod
+    def get_user_by_email(self, email: str) -> User:
+        pass
