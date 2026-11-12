@@ -4,6 +4,7 @@ from flask_cors import CORS
 from src.modules.user.app.create_user.create_user_presenter import create_user_presenter
 
 app = Flask(__name__)
+app.json.sort_keys = False
 CORS(app)  # libera o front (Live Server) a chamar o back-end
 
 app.add_url_rule("/users", "create_user", create_user_presenter, methods=["POST"])

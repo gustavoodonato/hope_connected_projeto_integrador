@@ -22,6 +22,7 @@ class CreateUserUsecase:
         self.repo = repo
 
     def __call__(self, nome: str, email: str, senha: str, phone: Optional[str] = None, endereco: Optional[Adress] = None) -> User:
+        print("USECASE RECEBEU:", phone, endereco)
         if len(senha) < 6:
             raise EntityError("senha")
 

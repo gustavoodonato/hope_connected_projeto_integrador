@@ -1,7 +1,7 @@
 from typing import Any
 
 from src.shared.domain.helpers.enum.https_status_code_enum import HttpStatusCodeEnum
-from src.shared.helpers.external_interfaces.http_model import HttpResponse
+from src.shared.domain.helpers.external_interfaces.http_models import HttpResponse
 
 
 # 2xx - Success

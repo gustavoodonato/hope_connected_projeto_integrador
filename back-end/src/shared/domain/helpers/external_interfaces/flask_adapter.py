@@ -1,7 +1,7 @@
 from flask import Request, Response, jsonify, make_response
 
-from src.shared.helpers.external_interfaces.external_interface import IResponse
-from src.shared.helpers.external_interfaces.http_model import HttpRequest
+from src.shared.domain.helpers.external_interfaces.external_interface import IResponse
+from src.shared.domain.helpers.external_interfaces.http_models import HttpRequest
 
 
 def to_http_request(flask_request: Request, **url_params) -> HttpRequest:
