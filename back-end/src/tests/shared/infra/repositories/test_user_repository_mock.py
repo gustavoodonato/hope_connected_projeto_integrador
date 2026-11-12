@@ -62,6 +62,6 @@ class Test_UserRepositoryMock:
         repo.create_user(user)
 
         assert len(repo.users) == 4
-        assert repo.users[-1].id == 987
+        assert repo.users[-1].id == 790
         assert repo.users[-1].email == "gustavao061@gmail.com"
-        assert repo.get_user_by_email("gustavao061@gmail.com").id == 987
+        assert repo.get_user_by_email("gustavao061@gmail.com").id == 790

@@ -60,8 +60,10 @@ class UserRepositoryMock(IUserRepository):
         ]
 
     def create_user(self, new_user: User) -> User:
-        self.users.append(new_user)
-        return new_user
+        novo_id = max((u.id for u in self.users), default=0) + 1
+        user = new_user.model_copy(update={"id": novo_id})
+        self.users.append(user)
+        return user
 
     def get_user(self, user_id: int) -> User:
         for user in self.users:
