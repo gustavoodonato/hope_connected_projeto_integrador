@@ -1,13 +1,13 @@
 from src.shared.domain.entities.user import User
 
-class CreateUserViewmodel():
+class CreateUserViewmodel:
     def __init__(self, user: User):
         self.id = user.id
         self.nome = user.nome
         self.email = user.email
+        self.role = user.role.value
         self.phone = user.phone
-        self.endereco = user.endereco
-        self.role = user.role
+        self.endereco = user.endereco.model_dump() if user.endereco else None
 
     def to_dict(self):
         return {

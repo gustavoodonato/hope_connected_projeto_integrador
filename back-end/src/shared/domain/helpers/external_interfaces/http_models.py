@@ -29,6 +29,14 @@ class HttpRequest(IRequest):
         data_dict.update(self.query_params)
         self.data = data_dict
 
+    @property
+    def data(self) -> dict:
+        return self._data
+
+    @data.setter
+    def data(self, value: dict):
+        self._data = value
+
     def __repr__(self):
         return (f"HttpRequest (body={self.body}, headers={self.headers}, "
                 f"query_params={self.query_params}, data={self.data})")
@@ -49,6 +57,22 @@ class HttpResponse(IResponse):
 
         data_dict.update(self.headers)
         self.data = data_dict
+
+    @property
+    def data(self) -> dict:
+        return self._data
+
+    @data.setter
+    def data(self, value: dict):
+        self._data = value
+
+    @property
+    def status_code(self) -> int:
+        return self._status_code
+
+    @status_code.setter
+    def status_code(self, value: int):
+        self._status_code = value
 
     def __repr__(self):
         return (f"HttpResponse (status_code={self.status_code}, "
