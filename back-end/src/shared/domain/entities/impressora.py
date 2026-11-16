@@ -21,12 +21,6 @@ class Impressora(BaseModel):
         description="Id unico da impressora"
     )
 
-    id_usuario_fornecedor: int = Field(
-        ...,
-        gt=0,
-        description="Id do usuário fornecedor dono da impressora"
-    )
-
     marca_modelo: str = Field(
         ...,
         max_length=120,
