@@ -65,3 +65,34 @@ class Test_UserRepositoryMock:
         assert repo.users[-1].id == 790
         assert repo.users[-1].email == "gustavao061@gmail.com"
         assert repo.get_user_by_email("gustavao061@gmail.com").id == 790
+
+
+    def test_get_all_users(self):
+        assert len(UserRepositoryMock().get_all_users()) == 3
+
+    def test_update_user(self):
+        repo = UserRepositoryMock()
+        user = repo.get_user(123)
+        atualizado = User(**{**user.model_dump(), "nome": "Novo Nome"})
+
+        repo.update_user(atualizado)
+
+        assert repo.get_user(123).nome == "Novo Nome"
+
+    def test_update_user_not_found(self):
+        repo = UserRepositoryMock()
+        user = repo.get_user(123)
+        fantasma = User(**{**user.model_dump(), "id": 999})
+        with pytest.raises(NoItemsFound):
+            repo.update_user(fantasma)
+
+    def test_delete_user(self):
+        repo = UserRepositoryMock()
+        repo.delete_user(456)
+        assert len(repo.users) == 2
+        with pytest.raises(NoItemsFound):
+            repo.get_user(456)
+
+    def test_delete_user_not_found(self):
+        with pytest.raises(NoItemsFound):
+            UserRepositoryMock().delete_user(999)

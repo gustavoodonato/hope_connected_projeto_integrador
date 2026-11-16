@@ -76,3 +76,19 @@ class UserRepositoryMock(IUserRepository):
             if user.email == email:
                 return user
         raise NoItemsFound("email")
+
+    def get_all_users(self) -> List[User]:
+        return list(self.users)
+
+    def update_user(self, user: User) -> User:
+        for i, existing in enumerate(self.users):
+            if str(existing.id) == str(user.id):
+                self.users[i] = user
+                return user
+        raise NoItemsFound("user_id")
+
+    def delete_user(self, user_id: int) -> User:
+        for i, existing in enumerate(self.users):
+            if str(existing.id) == str(user_id):
+                return self.users.pop(i)
+        raise NoItemsFound("user_id")
