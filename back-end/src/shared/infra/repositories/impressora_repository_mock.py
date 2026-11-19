@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 from src.shared.domain.entities.impressora import Impressora
 from src.shared.domain.entities.volume_impressao import VolumeImpressao
 from src.shared.domain.enums.status_disponibilidade_enum import StatusDisponibilidadeEnum
@@ -62,3 +62,33 @@ class ImpressoraRepositoryMock(IImpressoraRepository):
             i for i in self.impressoras
             if i.status_disponibilidade == StatusDisponibilidadeEnum.DISPONIVEL
         ]
+
+    def update_impressora(
+        self,
+        impressora_id: int,
+        marca_modelo: Optional[str] = None,
+        tecnologia: Optional[TecnologiaImpressoraEnum] = None,
+        volume_impressao: Optional[VolumeImpressao] = None,
+        status_disponibilidade: Optional[StatusDisponibilidadeEnum] = None,
+    ) -> Impressora:
+        impressora_atual = self.get_impressora(impressora_id)
+
+        novos_valores = {
+            "marca_modelo": marca_modelo,
+            "tecnologia": tecnologia,
+            "volume_impressao": volume_impressao,
+            "status_disponibilidade": status_disponibilidade,
+        }
+        novos_valores = {k: v for k, v in novos_valores.items() if v is not None}
+
+        # recria a entidade (em vez de model_copy) para validar os novos valores
+        impressora_atualizada = Impressora(**{**impressora_atual.model_dump(), **novos_valores})
+
+        indice = self.impressoras.index(impressora_atual)
+        self.impressoras[indice] = impressora_atualizada
+        return impressora_atualizada
+
+    def delete_impressora(self, impressora_id: int) -> Impressora:
+        impressora = self.get_impressora(impressora_id)
+        self.impressoras.remove(impressora)
+        return impressora

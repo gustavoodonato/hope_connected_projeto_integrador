@@ -14,6 +14,8 @@ class Test_IImpressoraRepository:
             "get_impressora",
             "get_impressoras_by_fornecedor",
             "get_impressoras_disponiveis",
+            "update_impressora",
+            "delete_impressora",
         }
 
     def test_mock_implements_interface(self):
