@@ -13,3 +13,13 @@ def inteiro_obrigatorio(data: dict, campo: str) -> int:
 
 def requester_id_obrigatorio(data: dict) -> int:
     return inteiro_obrigatorio(data, REQUESTER_HEADER)
+
+def texto_obrigatorio(data: dict, campo: str) -> str:
+    valor = data.get(campo)
+    if valor is None:
+        raise MissingParameters(campo)
+    if not isinstance(valor, str):
+        raise WrongTypeParameter(fieldName=campo, fieldTypeExpected=str, fieldTypeReceived=type(valor))
+    if valor.strip() == "":
+        raise MissingParameters(campo)
+    return valor
