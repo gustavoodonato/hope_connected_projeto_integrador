@@ -16,3 +16,10 @@ class Environments:
             from src.shared.infra.repositories.impressora_repository_mock import ImpressoraRepositoryMock
             return ImpressoraRepositoryMock
         raise NotImplementedError("Repositório de produção ainda não criado")
+
+    @staticmethod
+    def get_solicitacao_repo():
+        if Environments.stage == "TEST":
+            from src.shared.infra.repositories.solicitacao_repository_mock import SolicitacaoRepositoryMock
+            return SolicitacaoRepositoryMock
+        raise NotImplementedError("Repositório de produção ainda não criado")
