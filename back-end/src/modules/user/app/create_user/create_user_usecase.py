@@ -8,7 +8,7 @@ from src.shared.domain.repositories.user_repository_interface import IUserReposi
 from src.shared.helpers.errors.domain_errors import EntityError
 from src.shared.helpers.errors.usecase_errors import DuplicatedItem, NoItemsFound
 
-DOMINIO_AACD = "@aacd.org.br"  # confirme o domínio real
+DOMINIO_AACD = "@aacd.org.br"
 
 
 def definir_role(email: str) -> RoleEnum:
@@ -22,7 +22,6 @@ class CreateUserUsecase:
         self.repo = repo
 
     def __call__(self, nome: str, email: str, senha: str, phone: Optional[str] = None, endereco: Optional[Adress] = None) -> User:
-        print("USECASE RECEBEU:", phone, endereco)
         if len(senha) < 6:
             raise EntityError("senha")
 

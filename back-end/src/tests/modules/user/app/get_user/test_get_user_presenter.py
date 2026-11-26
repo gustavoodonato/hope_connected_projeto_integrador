@@ -1,16 +1,14 @@
 import pytest
 
 from app import app
-
+from src.shared.helpers.auth import auth
 
 @pytest.fixture
 def client():
     return app.test_client()
 
-
 def requester(id_):
-    return {"X-Requester-Id": str(id_)}
-
+    return auth(id_)
 
 class Test_GetUserPresenter:
     def test_get_own_user(self, client):
@@ -38,9 +36,13 @@ class Test_GetUserPresenter:
         response = client.get("/users/abc", headers=requester(123))
         assert response.status_code == 400
 
-    def test_without_requester_header(self, client):
+    def test_without_token(self, client):
         response = client.get("/users/123")
-        assert response.status_code == 400
+        assert response.status_code == 401
+
+    def test_old_header_no_longer_works(self, client):
+        response = client.get("/users/123", headers={"X-Requester-Id": "123"})
+        assert response.status_code == 401
 
     def test_created_user_can_be_retrieved(self, client):
         criado = client.post("/users", json={
@@ -52,3 +54,15 @@ class Test_GetUserPresenter:
 
         assert response.status_code == 200
         assert response.get_json()["email"] == "bia.get.presenter@aacd.org.br"
+
+    def test_login_token_works_on_get(self, client):
+        # o fluxo real: login devolve o token, e o token abre a rota protegida
+        login = client.post("/login", json={
+            "email": "muriloso123@gmail.com", "senha": "senha123"})
+        assert login.status_code == 200
+        token = login.get_json()["token"]
+
+        response = client.get("/users/123", headers={"Authorization": f"Bearer {token}"})
+
+        assert response.status_code == 200
+        assert response.get_json()["nome"] == "Murilo"

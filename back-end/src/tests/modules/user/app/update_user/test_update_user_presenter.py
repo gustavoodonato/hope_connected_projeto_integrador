@@ -1,16 +1,13 @@
 import pytest
-
 from app import app
-
+from src.shared.helpers.auth import auth
 
 @pytest.fixture
 def client():
     return app.test_client()
 
-
 def requester(id_):
-    return {"X-Requester-Id": str(id_)}
-
+    return auth(id_)
 
 def criar_aacd(client, email):
     resposta = client.post("/users", json={"nome": "Teste", "email": email, "senha": "123456"})
@@ -28,7 +25,6 @@ class Test_UpdateUserPresenter:
         assert resposta.get_json()["nome"] == "Novo Nome"
         assert "senha_hash" not in resposta.get_json()
 
-        # persistiu: o get enxerga a mudança (mesmo repositório compartilhado)
         leitura = client.get(f"/users/{uid}", headers=requester(uid))
         assert leitura.get_json()["nome"] == "Novo Nome"
 
@@ -56,7 +52,21 @@ class Test_UpdateUserPresenter:
         resposta = client.put(f"/users/{uid}", headers=requester(uid))
         assert resposta.status_code == 400
 
-    def test_update_without_requester_header(self, client):
-        uid = criar_aacd(client, "upd.semheader@aacd.org.br")
+    def test_update_without_token(self, client):
+        uid = criar_aacd(client, "upd.semtoken@aacd.org.br")
+
         resposta = client.put(f"/users/{uid}", json={"nome": "X"})
-        assert resposta.status_code == 400
+
+        assert resposta.status_code == 401
+        leitura = client.get(f"/users/{uid}", headers=requester(uid))
+        assert leitura.get_json()["nome"] == "Teste"
+
+    def test_old_header_no_longer_works(self, client):
+        uid = criar_aacd(client, "upd.headerantigo@aacd.org.br")
+
+        resposta = client.put(f"/users/{uid}", json={"nome": "Invasor"},
+                              headers={"X-Requester-Id": str(uid)})
+
+        assert resposta.status_code == 401
+        leitura = client.get(f"/users/{uid}", headers=requester(uid))
+        assert leitura.get_json()["nome"] == "Teste"

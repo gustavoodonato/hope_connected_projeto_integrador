@@ -4,11 +4,11 @@ from src.modules.user.app.update_user.update_user_usecase import UpdateUserUseca
 from src.modules.user.app.update_user.update_user_viewmodel import UpdateUserViewmodel
 from src.shared.domain.entities.adress import Adress
 from src.shared.domain.helpers.external_interfaces.external_interface import IRequest, IResponse
-from src.shared.domain.helpers.external_interfaces.http_codes import BadRequest, Forbidden, InternalServerError, NotFound, OK
+from src.shared.domain.helpers.external_interfaces.http_codes import BadRequest, Forbidden, InternalServerError, NotFound, OK, Unauthorized
 from src.shared.helpers.controller_utils import inteiro_obrigatorio, requester_id_obrigatorio
 from src.shared.helpers.errors.controller_errors import MissingParameters, WrongTypeParameter
 from src.shared.helpers.errors.domain_errors import EntityError
-from src.shared.helpers.errors.usecase_errors import ForbiddenAction, NoItemsFound
+from src.shared.helpers.errors.usecase_errors import ForbiddenAction, InvalidToken, NoItemsFound
 
 
 class UpdateUserController:
@@ -54,6 +54,9 @@ class UpdateUserController:
             )
 
             return OK(UpdateUserViewmodel(user).to_dict())
+
+        except InvalidToken as err:
+            return Unauthorized(body=err.message)
 
         except NoItemsFound as err:
             return NotFound(body=err.message)
