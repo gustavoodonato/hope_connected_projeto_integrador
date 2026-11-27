@@ -1,0 +1,55 @@
+import pytest
+from app import app
+from src.shared.helpers.auth import auth
+
+@pytest.fixture
+def client():
+    return app.test_client()
+
+class Test_GetAllUsersPresenter:
+    def test_aacd_lists_fornecedores(self, client):
+        response = client.get("/users", headers=auth(123))
+
+        assert response.status_code == 200
+        nomes = {u["nome"] for u in response.get_json()["users"]}
+        assert {"Lucas", "Julio"} <= nomes
+        assert "Murilo" not in nomes
+
+    def test_response_has_only_public_fields(self, client):
+        response = client.get("/users", headers=auth(123))
+
+        for usuario in response.get_json()["users"]:
+            assert set(usuario.keys()) == {"id", "nome", "cidade", "estado"}
+
+    def test_fornecedor_is_forbidden(self, client):
+        assert client.get("/users", headers=auth(456)).status_code == 403
+
+    def test_without_token(self, client):
+        assert client.get("/users").status_code == 401
+
+    def test_old_header_no_longer_works(self, client):
+        response = client.get("/users", headers={"X-Requester-Id": "123"})
+        assert response.status_code == 401
+
+    def test_new_fornecedor_appears_in_the_list(self, client):
+        criado = client.post("/users", json={
+            "nome": "Loja Nova", "email": "getall.novo@loja.com", "senha": "123456",
+            "phone": "11999998888",
+            "endereco": {"cep": "01023330", "logradouro": "Rua A", "numero": "1",
+                         "bairro": "Centro", "cidade": "Santo André", "estado": "SP"}})
+        assert criado.status_code == 201
+
+        response = client.get("/users", headers=auth(123))
+
+        nomes = {u["nome"] for u in response.get_json()["users"]}
+        assert "Loja Nova" in nomes
+
+    def test_login_token_works_on_the_list(self, client):
+        # o fluxo real: login devolve o token, e o token abre a rota protegida
+        login = client.post("/login", json={"email": "muriloso123@gmail.com", "senha": "senha123"})
+        assert login.status_code == 200
+        token = login.get_json()["token"]
+
+        response = client.get("/users", headers={"Authorization": f"Bearer {token}"})
+
+        assert response.status_code == 200

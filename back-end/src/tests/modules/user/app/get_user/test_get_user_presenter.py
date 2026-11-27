@@ -56,7 +56,6 @@ class Test_GetUserPresenter:
         assert response.get_json()["email"] == "bia.get.presenter@aacd.org.br"
 
     def test_login_token_works_on_get(self, client):
-        # o fluxo real: login devolve o token, e o token abre a rota protegida
         login = client.post("/login", json={
             "email": "muriloso123@gmail.com", "senha": "senha123"})
         assert login.status_code == 200

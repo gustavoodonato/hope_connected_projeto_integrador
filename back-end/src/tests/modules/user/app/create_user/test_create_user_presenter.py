@@ -36,5 +36,6 @@ class Test_CreateUserPresenter:
     def test_post_without_body(self, client):
         assert client.post("/users").status_code == 400
 
-    def test_get_not_allowed(self, client):
-        assert client.get("/users").status_code == 405
+    def test_other_methods_not_allowed(self, client):
+        assert client.delete("/users").status_code == 405
+        assert client.put("/users").status_code == 405
