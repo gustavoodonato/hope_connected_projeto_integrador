@@ -1,3 +1,3 @@
-from src.shared.enviroments import Environments
+from src.shared.enviroments import Enviroments
 
-user_repo = Environments.get_user_repo()()
+user_repo = Enviroments.get_user_repo()()
